@@ -49,6 +49,11 @@ const uploadFile = () => {
             console.log(xhr.response);
         }
     };
+    xhr.upload.onprogress = updateProgress;
     xhr.open("POST", uploadURL);
     xhr.send(formData);
+};
+const updateProgress = (e) => {
+    const percent = Math.round((e.loaded / e.total) * 100);
+    console.log(percent);
 };
