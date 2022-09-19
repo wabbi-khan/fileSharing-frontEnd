@@ -5,17 +5,19 @@
 
 body,
 html {
-    font-family: syste-ui;
+    font-family: system-ui;
     background: var(--main-bg-color);
     height: 100%;
     padding: 0;
     margin: 0;
 }
 
-body {
+body,
+.drop-zone {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .upload-container {
@@ -30,4 +32,19 @@ body {
     border: 2px dashed var(--border-color);
     margin: 30px;
     border-radius: 10px;
+}
+
+.icon-container {
+    width: 70px;
+    height: 100px;
+    position: relative;
+}
+
+.icon-container img {
+    width: 70px;
+    position: absolute;
+}
+
+.icon-container .center {
+    z-index: 2;
 }
