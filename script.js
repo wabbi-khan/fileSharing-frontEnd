@@ -36,14 +36,18 @@ dropZone.addEventListener("drop", (e) => {
 browseBtn.addEventListener("click", () => {
     fileInput.click();
 });
-
+fileInput.addEventListener("change", () => {
+    uploadFile();
+});
 const uploadFile = () => {
     const file = fileInput.files[0];
     const formData = new FormData();
     formData.append("myfile", file);
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
-        console.log(xhr.readyState);
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            console.log(xhr.response);
+        }
     };
     xhr.open("POST", uploadURL);
     xhr.send(formData);
