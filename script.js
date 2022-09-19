@@ -1,7 +1,8 @@
 const dropZone = document.querySelector(".drop-zone");
 const browseBtn = document.querySelector(".browseBtn");
 const fileInput = document.querySelector("#fileinput");
-
+const bgProgress = document.querySelector(".bg-progress");
+const percentContainer = document.querySelector("#percent");
 const baseURL = "https://innshare.herokuapp.com";
 const uploadURL = `${baseURL}/api/files`;
 // ? jabh bhi drag hoga tw ye chlega
@@ -56,4 +57,6 @@ const uploadFile = () => {
 const updateProgress = (e) => {
     const percent = Math.round((e.loaded / e.total) * 100);
     console.log(percent);
+    bgProgress.style.width = `${percent}%`;
+    percentContainer.innerHTML = percent;
 };
