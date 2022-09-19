@@ -1,5 +1,6 @@
 const dropZone = document.querySelector(".drop-zone");
-
+const browseBtn = document.querySelector(".browseBtn");
+const fileInput = document.querySelector("#fileinput");
 // ? jabh bhi drag hoga tw ye chlega
 
 dropZone.addEventListener("dragover", (e) => {
@@ -20,4 +21,14 @@ dropZone.addEventListener("dragleave", (e) => {
 dropZone.addEventListener("drop", (e) => {
     e.preventDefault();
     dropZone.classList.remove("dragged");
+    const files = e.dataTransfer.files;
+    console.log(files);
+    if (files.length) {
+        fileInput.files = files;
+    }
+});
+
+// * jab bhi browse button py click hoga ye chlega
+browseBtn.addEventListener("click", () => {
+    fileInput.click();
 });

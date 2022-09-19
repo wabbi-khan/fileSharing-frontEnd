@@ -74,3 +74,17 @@ body,
 .dragged .icon-container .center {
     transform: translateY(-7px);
 }
+
+#fileinput {
+    display: none;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.browseBtn {
+    color: #2196f3;
+    cursor: pointer;
+}
