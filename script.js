@@ -1,6 +1,9 @@
 const dropZone = document.querySelector(".drop-zone");
 const browseBtn = document.querySelector(".browseBtn");
 const fileInput = document.querySelector("#fileinput");
+
+const baseURL = "https://innshare.herokuapp.com";
+const uploadURL = `${baseURL}/api/files`;
 // ? jabh bhi drag hoga tw ye chlega
 
 dropZone.addEventListener("dragover", (e) => {
@@ -25,6 +28,7 @@ dropZone.addEventListener("drop", (e) => {
     console.log(files);
     if (files.length) {
         fileInput.files = files;
+        uploadFile();
     }
 });
 
@@ -32,3 +36,15 @@ dropZone.addEventListener("drop", (e) => {
 browseBtn.addEventListener("click", () => {
     fileInput.click();
 });
+
+const uploadFile = () => {
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append("myfile", file);
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        console.log(xhr.readyState);
+    };
+    xhr.open("POST", uploadURL);
+    xhr.send(formData);
+};
