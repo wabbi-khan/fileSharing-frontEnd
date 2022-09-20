@@ -9,8 +9,11 @@ const fileUrl = document.querySelector("#fileUrl");
 const sharingContainer = document.querySelector(".sharing-container");
 const copyBtn = document.querySelector("#copyBtn");
 const emailForm = document.querySelector("#emailForm");
+// ?============== BACK-END API===========
 const baseURL = "https://innshare.herokuapp.com";
 const uploadURL = `${baseURL}/api/files`;
+const emailURL = `${baseURL}/api/files/send`;
+
 // ? jabh bhi drag hoga tw ye chlega
 
 dropZone.addEventListener("dragover", (e) => {
@@ -76,6 +79,8 @@ const updateProgress = (e) => {
 };
 const showLink = ({ file: url }) => {
     console.log(url);
+    fileInput.value = "";
+    emailForm[2].removeAttribute("disabled", "true");
     sharingContainer.style.display = "block";
     progressContainer.style.display = "none";
     fileUrl.value = url;
@@ -83,11 +88,26 @@ const showLink = ({ file: url }) => {
 emailForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const url = fileUrl.value;
-
-    const fromData = {
+    const formData = {
         uuid: url.split("/").splice(-1, 1)[0],
         emailTo: emailForm.elements["to-email"].value,
         emailFrom: emailForm.elements["from-email"].value,
     };
-    console.table(fromData);
+    emailForm[2].setAttribute("disabled", "true");
+    console.table(formData);
+    fetch(emailURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            // console.log(data);
+            if (data.success) {
+                showToast("Email Sent");
+                sharingContainer.style.display = "none"; // hide the box
+            }
+        });
 });
