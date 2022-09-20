@@ -82,5 +82,12 @@ const showLink = ({ file: url }) => {
 };
 emailForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("Asdad");
+    const url = fileUrl.value;
+
+    const fromData = {
+        uuid: url.split("/").splice(-1, 1)[0],
+        emailTo: emailForm.elements["to-email"].value,
+        emailFrom: emailForm.elements["from-email"].value,
+    };
+    console.table(fromData);
 });

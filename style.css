@@ -211,7 +211,7 @@ p {
 .email-container input {
     font-size: 15px;
     border: none;
-    border-bottom: 2px solid emailForm;
+    border-bottom: 2px solid var(--border-color);
     text-align: center;
 }
 
