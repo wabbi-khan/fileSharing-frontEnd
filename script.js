@@ -5,6 +5,7 @@ const bgProgress = document.querySelector(".bg-progress");
 const progressBar = document.querySelector(".progress-bar");
 const percentContainer = document.querySelector("#percent");
 const progressContainer = document.querySelector(".progress-container");
+const fileUrl = document.querySelector("#fileUrl");
 const baseURL = "https://innshare.herokuapp.com";
 const uploadURL = `${baseURL}/api/files`;
 // ? jabh bhi drag hoga tw ye chlega
