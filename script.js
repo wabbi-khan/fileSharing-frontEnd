@@ -58,5 +58,5 @@ const updateProgress = (e) => {
     const percent = Math.round((e.loaded / e.total) * 100);
     console.log(percent);
     bgProgress.style.width = `${percent}%`;
-    percentContainer.innerHTML = percent;
+    percentContainer.innerText = percent;
 };

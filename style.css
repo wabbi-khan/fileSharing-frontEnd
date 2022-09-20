@@ -117,4 +117,18 @@ body,
     position: absolute;
     z-index: 1;
     margin: 10px 15px;
+    width: calc(100% - 30px);
+}
+
+.percent-container {
+    font-size: 13px;
+    margin: 5px;
+    opacity: 0.8;
+}
+
+.progress-bar {
+    height: 3px;
+    width: 100%;
+    background: #03a9f4;
+    border-radius: 2px;
 }
