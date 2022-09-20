@@ -11,6 +11,7 @@ html {
     height: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 body,
@@ -228,4 +229,18 @@ p {
     border-radius: 5px;
     color: #0000008c;
     cursor: pointer;
+}
+
+.toast {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 60px);
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #03a9f4;
+    color: #fff;
+    font-size: 18px;
+    transition: ease-in-out 0.2s;
+    box-shadow: 0px 8px 17px 2px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
