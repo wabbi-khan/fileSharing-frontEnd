@@ -136,3 +136,38 @@ body,
     transform: scaleX(0);
     transition: 0.25s linear;
 }
+
+.expire {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.sharing-container {
+    width: var(--container-width);
+    margin-bottom: 10px;
+}
+
+.sharing-container .input-container {
+    position: relative;
+}
+
+.sharing-container .input-container input {
+    width: 100%;
+    border: 2px dashed var(--border-color);
+    border-radius: 6px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-size: 20px;
+    background: #f5fcff;
+    color: #0000008c;
+}
+
+.input-container img {
+    position: absolute;
+    height: 22px;
+    width: 40px;
+    right: 7px;
+    top: 14px;
+    background: #f7fdff;
+    cursor: pointer;
+}
