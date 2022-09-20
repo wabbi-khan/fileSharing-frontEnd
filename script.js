@@ -69,6 +69,10 @@ const uploadFile = () => {
         }
     };
     xhr.upload.onprogress = updateProgress;
+    xhr.upload.onerror = () => {
+        fileInput.value = "";
+        showToast(`Error in upload: ${xhr.statusText}`);
+    };
     xhr.open("POST", uploadURL);
     xhr.send(formData);
 };
