@@ -43,6 +43,7 @@ fileInput.addEventListener("change", () => {
     uploadFile();
 });
 const uploadFile = () => {
+    progressContainer.style.display = "block";
     const file = fileInput.files[0];
     const formData = new FormData();
     formData.append("myfile", file);
@@ -50,6 +51,7 @@ const uploadFile = () => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             console.log(xhr.response);
+            showLink(JSON.parse(xhr.response));
         }
     };
     xhr.upload.onprogress = updateProgress;
@@ -58,8 +60,12 @@ const uploadFile = () => {
 };
 const updateProgress = (e) => {
     const percent = Math.round((e.loaded / e.total) * 100);
-    console.log(percent);
+    // console.log(percent);
     bgProgress.style.width = `${percent}%`;
     percentContainer.innerText = percent;
     progressBar.style.transform = `scaleX(${percent}%)`;
+};
+const showLink = ({ file }) => {
+    console.log(file);
+    progressContainer.style.display = "none";
 };
