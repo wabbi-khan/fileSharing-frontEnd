@@ -8,6 +8,7 @@ const progressContainer = document.querySelector(".progress-container");
 const fileUrl = document.querySelector("#fileUrl");
 const sharingContainer = document.querySelector(".sharing-container");
 const copyBtn = document.querySelector("#copyBtn");
+const emailForm = document.querySelector("#emailForm");
 const baseURL = "https://innshare.herokuapp.com";
 const uploadURL = `${baseURL}/api/files`;
 // ? jabh bhi drag hoga tw ye chlega
@@ -79,3 +80,7 @@ const showLink = ({ file: url }) => {
     progressContainer.style.display = "none";
     fileUrl.value = url;
 };
+emailForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("Asdad");
+});

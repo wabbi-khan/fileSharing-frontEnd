@@ -146,7 +146,7 @@ p {
 .sharing-container {
     width: var(--container-width);
     margin-bottom: 10px;
-    /* display: none; */
+    display: none;
 }
 
 .sharing-container .input-container {
@@ -190,12 +190,17 @@ p {
     border: 2px solid var(--border-color);
     border-radius: 10px;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .email-container .field {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+    width: 400px;
 }
 
 .email-container label {
@@ -206,10 +211,21 @@ p {
 .email-container input {
     font-size: 15px;
     border: none;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid emailForm;
     text-align: center;
 }
 
 .email-container input:focus {
     outline: none;
+}
+
+.email-container button {
+    font-size: 18px;
+    padding: 8px 40px;
+    margin-top: 15px;
+    background: var(--border-color);
+    border: none;
+    border-radius: 5px;
+    color: #0000008c;
+    cursor: pointer;
 }
