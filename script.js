@@ -15,6 +15,7 @@ const baseURL = "https://innshare.herokuapp.com";
 const uploadURL = `${baseURL}/api/files`;
 const emailURL = `${baseURL}/api/files/send`;
 
+const maxAllowedSize = 100 * 1024 * 1024; // 100mb
 // ? jabh bhi drag hoga tw ye chlega
 
 dropZone.addEventListener("dragover", (e) => {
@@ -64,6 +65,11 @@ const uploadFile = () => {
         return;
     }
     const file = fileInput.files[0];
+    if (file.size > maxAllowedSize) {
+        showToast("Can't upload more than 100mb");
+        fileInput.value = "";
+        return;
+    }
     const formData = new FormData();
     formData.append("myfile", file);
     const xhr = new XMLHttpRequest();
