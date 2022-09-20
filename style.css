@@ -137,14 +137,16 @@ body,
     transition: 0.25s linear;
 }
 
-.expire {
+p.expire {
     font-size: 15px;
     font-weight: 500;
+    text-align: center;
 }
 
 .sharing-container {
     width: var(--container-width);
     margin-bottom: 10px;
+    display: none;
 }
 
 .sharing-container .input-container {
@@ -167,7 +169,8 @@ body,
     height: 22px;
     width: 40px;
     right: 7px;
-    top: 14px;
+    padding: 5px 0px;
+    top: 12px;
     background: #f7fdff;
     cursor: pointer;
 }

@@ -6,6 +6,8 @@ const progressBar = document.querySelector(".progress-bar");
 const percentContainer = document.querySelector("#percent");
 const progressContainer = document.querySelector(".progress-container");
 const fileUrl = document.querySelector("#fileUrl");
+const sharingContainer = document.querySelector(".sharing-container");
+const copyBtn = document.querySelector("#copyBtn");
 const baseURL = "https://innshare.herokuapp.com";
 const uploadURL = `${baseURL}/api/files`;
 // ? jabh bhi drag hoga tw ye chlega
@@ -40,6 +42,11 @@ dropZone.addEventListener("drop", (e) => {
 browseBtn.addEventListener("click", () => {
     fileInput.click();
 });
+// ?====================
+copyBtn.addEventListener("click", () => {
+    fileUrl.select();
+    document.execCommand("copy");
+});
 fileInput.addEventListener("change", () => {
     uploadFile();
 });
@@ -66,7 +73,9 @@ const updateProgress = (e) => {
     percentContainer.innerText = percent;
     progressBar.style.transform = `scaleX(${percent}%)`;
 };
-const showLink = ({ file }) => {
-    console.log(file);
+const showLink = ({ file: url }) => {
+    console.log(url);
+    sharingContainer.style.display = "block";
     progressContainer.style.display = "none";
+    fileUrl.value = url;
 };
