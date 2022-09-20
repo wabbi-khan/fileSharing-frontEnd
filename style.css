@@ -137,7 +137,7 @@ body,
     transition: 0.25s linear;
 }
 
-p.expire {
+p {
     font-size: 15px;
     font-weight: 500;
     text-align: center;
@@ -146,7 +146,7 @@ p.expire {
 .sharing-container {
     width: var(--container-width);
     margin-bottom: 10px;
-    display: none;
+    /* display: none; */
 }
 
 .sharing-container .input-container {
@@ -164,13 +164,52 @@ p.expire {
     color: #0000008c;
 }
 
+.sharing-container .input-container input:focus {
+    outline: none;
+}
+
 .input-container img {
     position: absolute;
     height: 22px;
     width: 40px;
     right: 7px;
     padding: 5px 0px;
-    top: 12px;
+    top: 11px;
     background: #f7fdff;
     cursor: pointer;
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-container form {
+    width: 100%;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.email-container .field {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.email-container label {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.email-container input {
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    text-align: center;
+}
+
+.email-container input:focus {
+    outline: none;
 }
