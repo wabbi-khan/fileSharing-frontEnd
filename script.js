@@ -58,6 +58,11 @@ fileInput.addEventListener("change", () => {
 });
 const uploadFile = () => {
     progressContainer.style.display = "block";
+    if (fileInput.files.length > 1) {
+        fileInput.value = "";
+        showToast("Only upload 1 file");
+        return;
+    }
     const file = fileInput.files[0];
     const formData = new FormData();
     formData.append("myfile", file);

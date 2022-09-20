@@ -23,6 +23,10 @@ body,
     flex-direction: column;
 }
 
+body {
+    flex-direction: row;
+}
+
 .upload-container {
     background: #ffffff;
     border-radius: 25px;
@@ -243,4 +247,26 @@ p {
     font-size: 18px;
     transition: ease-in-out 0.2s;
     box-shadow: 0px 8px 17px 2px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+.upload-vector {
+    background-image: url("./undraw-upload.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 50vh;
+    width: 50vw;
+}
+
+@media screen and (max-width: 900px) {
+     :root {
+        --container-width: 320px;
+    }
+    .upload-vector {
+        display: none;
+    }
+    .email-container .field {
+        flex-direction: column;
+        width: 300px;
+    }
 }
